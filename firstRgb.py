@@ -1,4 +1,4 @@
-from asyncore import loop
+from time import time
 import board
 import neopixel
 import time
@@ -10,6 +10,6 @@ print("Make it red!")
 
 while True:
     dot.fill((255, 0, 0))
-    time.sleep(0.1)
+    time.sleep(0.5)
     dot.fill((0, 0, 0))
-    time.sleep(0.1)
+    time.sleep(0.5)

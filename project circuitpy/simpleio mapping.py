@@ -1,4 +1,4 @@
-#thanks graham gilb for the code
+#thanks graham gilb for part the code
 import time
 import board
 import adafruit_hcsr04

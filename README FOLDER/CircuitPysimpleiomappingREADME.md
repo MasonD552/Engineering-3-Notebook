@@ -3,7 +3,7 @@
 
 Using a distance sensor. I will be able to use the didstance sensor to fade the led on the metro baord.
 ## CODE:
-'''
+```
 #thanks graham gilb for part the code
 import time
 import board
@@ -36,4 +36,4 @@ while True:
     except RuntimeError:
         print("Retrying!")
     time.sleep(0.1)
-    '''
+  ```

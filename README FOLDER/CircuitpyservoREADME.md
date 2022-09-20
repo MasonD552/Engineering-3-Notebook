@@ -1,4 +1,36 @@
+# SERVO CIRCUIT PYTHON
 **[project circuitpy/circuitpyservo.py](url)**
+
+
 Servo using circuit py.
 Working by going back and forth between 180 degrees and 0 degrees.
+
+## Code:
+```
+# SPDX-FileCopyrightText: 2018 Kattni Rembor for Adafruit Industries
+#
+# SPDX-License-Identifier: MIT
+
+"""CircuitPython Essentials Servo standard servo example"""
+import time
+import board
+import pwmio
+from adafruit_motor import servo
+
+# create a PWMOut object on Pin D2.
+pwm = pwmio.PWMOut(board.D2, duty_cycle=2 ** 15, frequency=50)
+
+# Create a servo object, my_servo.
+my_servo = servo.Servo(pwm)
+
+while True:
+    for angle in range(0, 180, 1):  # 0 - 180 degrees, 1 degrees at a time.
+        my_servo.angle = angle
+        time.sleep(0.05)
+    for angle in range(180, 0, -1): # 180 - 0 degrees, 1 degrees at a time.
+        my_servo.angle = angle
+        time.sleep(0.05)
+#lol
+```
+
 SPDX-FileCopyrightText: 2018 Kattni Rembor for Adafruit Industries

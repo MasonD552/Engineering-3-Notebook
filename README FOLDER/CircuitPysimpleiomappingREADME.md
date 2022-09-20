@@ -2,7 +2,7 @@
 **[project circuitpy/simpleio mapping.py](url)**
 
 Using a distance sensor. I will be able to use the didstance sensor to fade the led on the metro baord.
-![This is an image](https://myoctocat.com/assets/images/base-octocat.svg)
+![This is an image](https://docs.circuitpython.org/projects/hcsr04/en/stable/_images/3942-02.jpg)
 ## CODE:
 ```
 #thanks graham gilb for part the code

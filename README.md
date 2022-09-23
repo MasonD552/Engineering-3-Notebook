@@ -11,34 +11,7 @@ Table of contents
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## Circuit Python Servo
-
-
-
-
-
-
-
-
 
 
 ## SimpleIO Mapping

@@ -10,7 +10,35 @@ Table of contents
 ## First Rgb
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Circuit Python Servo
+
+
+
+
+
+
+
+
 
 
 ## SimpleIO Mapping

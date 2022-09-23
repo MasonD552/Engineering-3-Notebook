@@ -6,4 +6,4 @@
 * [CircuitPython_LCD](#CircuitPython_LCD)
 * [NextAssignmentGoesHere](#NextAssignment)
 ---
-#First Rgb
+## First Rgb

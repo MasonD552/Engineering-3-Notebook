@@ -3,7 +3,7 @@ Table of contents
 =================
 
 <!--ts-->
-   * [Installation](#installation)
+   * [First Rgb](#First Rgb)
    * [Usage](#usage)
       * [STDIN](#stdin)
       * [Local files](#local-files)

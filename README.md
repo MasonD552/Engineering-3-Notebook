@@ -3,7 +3,7 @@ Table of contents
 =================
 
 <!--ts-->
-   * [First Rgb](## First Rgb)
+   * [First Rgb](#First Rgb)
    * [Usage](#usage)
       * [STDIN](#stdin)
       * [Local files](#local-files)
@@ -19,4 +19,5 @@ Table of contents
      * [Local](#local)
      * [Public](#public)
 <!--te-->
+
 ## First Rgb

@@ -5,7 +5,7 @@ This repository will actually serve as a aid to help you get started with your o
 * [Hello_CircuitPython](#Hello_CircuitPython)
 * [CircuitPython_Servo](#CircuitPython_Servo)
 * [CircuitPython_LCD](#CircuitPython_LCD)
-* [CircuitPython_DistanceSensor](#CircuitPython_DistanceSensor)
+* [CircuitPython_Distance_Sensor](#CircuitPython_Distance_Sensor)
 * [NextAssignmentGoesHere](#NextAssignment)
 ---
 
@@ -62,7 +62,7 @@ Pictures / Gifs of your work should go here.  You need to communicate what your 
 ### Reflection
 
 
-## CircuitPython_Distance Sensor
+## CircuitPython_Distance_Sensor
 
 ### Description & Code
 

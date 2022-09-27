@@ -22,9 +22,9 @@ lcd.print("Starting")
 while True:                                 #[19-30] Code to add and subtract 
     if btn.value == True and Redo == True:  #from variable and 
         if btn2.value == True:              #"debounce" the  #buttons.         
-            num = num - 1
+            num = num + 1
         else:
-            num = num + 1                                   
+            num = num - 1                                   
         lcd.clear()
         lcd.print(str(num))
         Redo = False

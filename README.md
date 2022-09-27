@@ -18,4 +18,4 @@ Table of contents
 ## SimpleIO Mapping
 
 
-##LCD
+## LCD

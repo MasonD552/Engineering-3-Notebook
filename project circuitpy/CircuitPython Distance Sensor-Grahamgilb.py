@@ -1,3 +1,6 @@
+#Mason Divers
+#Distance sensor that changes the color of the Neopixel based on distance.
+#Thanks Grant for part of the code.
 import time
 import board
 import adafruit_hcsr04

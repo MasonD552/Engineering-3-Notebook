@@ -3,7 +3,7 @@ This repository will actually serve as a aid to help you get started with your o
 ## Table of Contents
 * [Table of Contents](#TableOfContents)
 * [CAD_Swing_Arm](#CAD_Swing_Arm)
-* [Pull_Copter](#Pull_Copter)
+* [CircuitPython_Servo](#CircuitPython_Servo)
 * [CircuitPython_LCD](#CircuitPython_LCD)
 * [CircuitPython_Distance_Sensor](#CircuitPython_Distance_Sensor)
 * [NextAssignmentGoesHere](#NextAssignment)
@@ -11,25 +11,44 @@ This repository will actually serve as a aid to help you get started with your o
 
 ## CAD_Swing_Arm
 
-### Description
+### Description & Code
 Description goes here
 
+Here's how you make code look like code:
+
+```python
+import board
+import neopixel
+
+dot = neopixel.NeoPixel(board.NEOPIXEL, 1)
+dot.brightness = 0.5 
+
+print("Make it red!")
+
+while True:
+    dot.fill((0, 0, 255))
+```
 
 
-### Evidence & Photos
+### Evidence
 
 
 
 
 
+
+And here is how you should give image credit to someone, if you use their work:
+
+Image credit goes to [Rick A](https://www.youtube.com/watch?v=dQw4w9WgXcQ&scrlybrkr=8931d0bc)
 
 
 ### Reflection
+What went wrong / was challenging, how'd you figure it out, and what did you learn from that experience?  Your ultimate goal for the reflection is to pass on knowledge that will make this assignment better or easier for the next person.
 
 
 
 
-## Pull_Copter
+## CircuitPython_Servo
 
 ### Description & Code
 

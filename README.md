@@ -4,7 +4,7 @@ This repository will actually serve as a aid to help you get started with your o
 * [Table of Contents](#TableOfContents)
 * [CAD_Swing_Arm](#CAD_Swing_Arm)
 * [Pull_Copter](#Pull_Copter)
-* [Multi-Part_Design_Studios](#Multi-Part_Design_Studios)
+* [CircuitPython_LCD](#CircuitPython_LCD)
 * [CircuitPython_Distance_Sensor](#CircuitPython_Distance_Sensor)
 * [NextAssignmentGoesHere](#NextAssignment)
 ---
@@ -71,7 +71,7 @@ while True:
 ### Reflection
 
 
-## Multi-Part_Design_Studios
+## CircuitPython_Distance_Sensor
 
 ### Description & Code
 

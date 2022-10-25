@@ -5,6 +5,8 @@ This repository will actually serve as a aid to help you get started with your o
 * [CAD_Swing_Arm](#CAD_Swing_Arm)
 * [Pull_Copter](#Pull_Copter)
 * [Multi-Part_Design_Studios](#Multi-Part_Design_Studios)
+* [CircuitPython_Distance_Sensor](#CircuitPython_Distance_Sensor)
+* [NextAssignmentGoesHere](#NextAssignment)
 ---
 
 ## CAD_Swing_Arm
@@ -29,16 +31,161 @@ Description goes here
 
 ## Pull_Copter
 
-### Description
+### Description & Code
 
+```python
+# SPDX-FileCopyrightText: 2018 Kattni Rembor for Adafruit Industries
+#
+# SPDX-License-Identifier: MIT
+
+"""CircuitPython Essentials Servo standard servo example"""
+import time
+import board
+import pwmio
+from adafruit_motor import servo
+
+# create a PWMOut object on Pin D2.
+pwm = pwmio.PWMOut(board.D2, duty_cycle=2 ** 15, frequency=50)
+
+# Create a servo object, my_servo.
+my_servo = servo.Servo(pwm)
+
+while True:
+    for angle in range(0, 180, 1):  # 0 - 180 degrees, 1 degrees at a time.
+        my_servo.angle = angle
+        time.sleep(0.05)
+    for angle in range(180, 0, -1): # 180 - 0 degrees, 1 degrees at a time.
+        my_servo.angle = angle
+        time.sleep(0.05)
+#lol
+
+```
+
+### Evidence
+
+![ezgif com-gif-maker (2)](https://user-images.githubusercontent.com/91158978/193044181-e92b6f3c-3434-4e6b-a242-86af502cbd56.gif)
+
+### Wiring
+![Exquisite Gogo-Blad](https://user-images.githubusercontent.com/91158978/193046598-dc07286b-8199-4008-a6be-15ca5dddda87.png)
 
 ### Reflection
 
 
 ## Multi-Part_Design_Studios
 
-### Description
+### Description & Code
+
+```python
+#Mason Divers
+#Distance sensor that changes the color of the Neopixel based on distance.
+#Thanks Grant for part of the code.
+import time
+import board
+import adafruit_hcsr04
+import neopixel
+
+sonar = adafruit_hcsr04.HCSR04(trigger_pin=board.D3, echo_pin=board.D2)
+Grant = neopixel.NeoPixel(board.NEOPIXEL, 1)#connecting the neopixel on the board to the code
+Grant.brightness = .3  #setting the brightness of the light, from 0-1 brightness
+
+while True:
+    try:
+        cm = sonar.distance
+        print((sonar.distance))
+        time.sleep(0.5)
+        if cm < 5:
+            Grant.fill((255, 0, 0))#setting the color with RGB values
+        if cm > 5 and cm < 20:
+            Grant.fill((255, 255, 0))#setting the color with RGB values
+        if cm > 20:
+            Grant.fill((0, 255, 0))#setting the color with RGB values
+    except RuntimeError:
+        print("Retrying!")
+    time.sleep(0.1)
+
+```
+```python
+#Mason Divers
+#Different version from the distance sensor. This distance sensor fades from red to green to blue.
+#thanks graham gilb for part the code
+import time
+import board
+import adafruit_hcsr04
+import neopixel
+import simpleio
+
+sonar = adafruit_hcsr04.HCSR04(trigger_pin=board.D3, echo_pin=board.D2)
+Grant = neopixel.NeoPixel(board.NEOPIXEL, 1)#connecting the neopixel on the board to the code
+Grant.brightness = .3  #setting the brightness of the light, from 0-1 brightness
+
+while True:
+    try:
+        cm = sonar.distance
+        simpleio.map_range(cm, 0, 20, 3, 20)
+        print((sonar.distance))
+        if cm < 7.5:
+            red = simpleio.map_range(cm, 0, 6.5, 255, 0)
+            green = simpleio.map_range(cm, 5, 7.5, 0, 230)
+            Grant.fill((red, green, 0))
+        if cm > 7.5 and cm < 12.5:
+            green = simpleio.map_range(cm, 7.5, 10, 255, 0)
+            blue = simpleio.map_range(cm, 9, 12.5, 0, 230)
+            Grant.fill((0, green, blue))
+        if cm > 12.5 and cm < 17.5:
+            blue = simpleio.map_range(cm, 12.5, 15, 255, 0)
+            red = simpleio.map_range(cm, 14, 17.5, 0, 240)
+            Grant.fill((red, 0, blue))
+        time.sleep(0.01)
+    except RuntimeError:
+        print("Retrying!")
+    time.sleep(0.1)
+```
+
+### Evidence
 
 #### Pictures:
+![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/91158978/192557053-d899b15d-2e22-4626-91d8-de9a6d08f2f3.gif)
+
+### Wiring
+![Exquisite Gogo-Blad (1)](https://user-images.githubusercontent.com/91158978/193048333-84f23653-4f30-46e1-9c1e-7a27a48d0d50.png)
+
+### Reflection
+
+
+
+
+## CircuitPython_LCD
+
+### Description & Code
+
+```python
+Code goes here
+
+```
+
+### Evidence
+
+Pictures / Gifs of your work should go here.  You need to communicate what your thing does.
+
+### Wiring
+
+### Reflection
+
+
+
+
+
+## NextAssignment
+
+### Description & Code
+
+```python
+Code goes here
+
+```
+
+### Evidence
+
+### Wiring
 
 ### Reflection

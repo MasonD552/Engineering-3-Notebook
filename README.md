@@ -38,6 +38,7 @@ Image credit goes to [METRO M0 Express - Adafruit | Mouser](https://www.mouser.c
 
 
 ### Reflection
+So the one thing that was challenging was setting up VS code so it would be able to run circuit python, and the library for the neopixel had to updated. So I had to look at the instruction on canvas and follow them in order to fix my problem. I learned that in order to update a library you need to get the up to date version and drop the specific file you need to update.
 What went wrong / was challenging, how'd you figure it out, and what did you learn from that experience?  Your ultimate goal for the reflection is to pass on knowledge that will make this assignment better or easier for the next person.
 
 
@@ -46,6 +47,7 @@ What went wrong / was challenging, how'd you figure it out, and what did you lea
 ## CircuitPython_Servo
 
 ### Description & Code
+The Servo is moving between a suplementary angle and movie 1 degree at a time. It is moving the angle every 0.05 seconds.
 
 ```python
 # SPDX-FileCopyrightText: 2018 Kattni Rembor for Adafruit Industries
@@ -83,11 +85,13 @@ while True:
 ![Exquisite Gogo-Blad](https://user-images.githubusercontent.com/91158978/193046598-dc07286b-8199-4008-a6be-15ca5dddda87.png)
 
 ### Reflection
+The one thing that was hard was understanding how a servo works. By definition "A Servo Motor is a small device that has an output shaft. This shaft can be positioned to specific angular positions by sending the servo a coded signal. As long as the coded signal exists on the input line, the servo will maintain the angular position of the shaft." So to simplify they have a library that makes it way easier to control a servo motor. I learned this by using Kattni Rembor for Adafruit Industries's code. In his website explains how the code works. https://learn.adafruit.com/adafruit-circuit-playground-bluefruit/circuitpython-servo
 
 
 ## CircuitPython_Distance_Sensor
 
 ### Description & Code
+Neopixel color changes color based on input from distance sensor.
 
 ```python
 #Mason Divers
@@ -164,7 +168,7 @@ while True:
 ![Exquisite Gogo-Blad (1)](https://user-images.githubusercontent.com/91158978/193048333-84f23653-4f30-46e1-9c1e-7a27a48d0d50.png)
 
 ### Reflection
-
+The one thing that was hard was getting the colors to fade in and out. I solved this by thinking to myself how I needed to use the greater than and less than. I also asked grant how he used the greater than and less than. He told me that you have to make red a certain distance the same for green and blue.
 
 
 
@@ -210,11 +214,9 @@ while True:                                 #[19-30] Code to add and subtract
 ```
 
 ### Evidence
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/91158978/198723378-2b73a4d7-467a-48c3-b714-d60a909e4de3.gif)
 
-Pictures / Gifs of your work should go here.  You need to communicate what your thing does.
-
-### Wiring
 
 ### Reflection
-
+Hardest part was trying to get the button to work. When I have used pullup buttons they always seem to work weird. For my solution I needed to have the button be pressed down to count down and press one button to count up.
 

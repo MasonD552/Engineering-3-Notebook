@@ -1,36 +1,19 @@
-# SPDX-FileCopyrightText: 2018 Mikey Sklar for Adafruit Industries
-#
-# SPDX-License-Identifier: MIT
-
-# Trinket Gemma Servo Control
-# for Adafruit M0 boards
-
+#Mason Divers
+#Controlled dc motor with potentiometer
+#Code is credited to Grant Gastinger
+import time
 import board
-import pwmio
-from adafruit_motor import servo
+import simpleio
 from analogio import AnalogIn
+import adafruit_motor
 
-# servo pin for the M0 boards:
-pwm = pwmio.PWMOut(board.A2, duty_cycle=2 ** 15, frequency=50)
-my_servo = servo.Servo(pwm)
-angle = 0
+potentiometer = AnalogIn(board.A0)
+motor1 = motor.DCMotor(board. D9)
 
-# potentiometer
-trimpot = AnalogIn(board.A1)  # pot pin for servo control
-
-def remap_range(value, left_min, left_max, right_min, right_max):
-    # this remaps a value from original (left) range to new (right) range
-    # Figure out how 'wide' each range is
-    left_span = left_max - left_min
-    right_span = right_max - right_min
-
-    # Convert the left range into a 0-1 range (int)
-    value_scaled = int(value - left_min) / int(left_span)
-
-    # Convert the 0-1 range into a value in the right range.
-    return int(right_min + (value_scaled * right_span))
-
+print("hello world")
 
 while True:
-    angle = remap_range(trimpot.value, 0, 65535, 0, 180)
-    my_servo.angle = angle
+    print((potentiometer.value,)) 
+    ticks = potentiometer.value
+    spped = simpleio.map_range(ticks,0,1023,0,1)
+    motor1._throttle(spped)

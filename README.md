@@ -222,3 +222,38 @@ while True:                                 #[19-30] Code to add and subtract
 ### Reflection
 Hardest part was trying to get the button to work. When I have used pullup buttons they always seem to work weird. For my solution I needed to have the button be pressed down to count down and press one button to count up.
 
+
+## CircuitPython_MotorControl
+
+### Description & Code
+
+```python
+#Mason Divers
+#Controlled dc motor with potentiometer
+#Code is credited to Grant Gastinger & Kaz Shinozaki
+import board               #[lines 1-4] Importing neccesary libraries
+import time
+from analogio import AnalogOut, AnalogIn
+import simpleio
+
+motor = AnalogOut(board.A1) #[lines 5 & 6] Definining the motor and potentiometer
+pot = AnalogIn(board.A0)
+
+while True:
+    print(simpleio.map_range(pot.value, 96, 65520, 0, 65535)) #Print mapped potentiometer value to motor inputs
+    motor.value = int(simpleio.map_range(pot.value, 96, 65520, 0, 65535)) #Write the mapped value to motor
+    time.sleep(.1)   
+```
+
+### Evidence
+![maxresdefault](https://user-images.githubusercontent.com/91158978/200862809-39ce8413-5778-46be-bf50-6e093b70533c.jpg)
+![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/91158978/200862857-73220d4c-14a8-48b9-96c0-2a28158ca28d.gif)
+![image](https://user-images.githubusercontent.com/91158978/200863879-123176e0-665f-483e-b1fd-2a36f44eb593.png)
+
+Immage credits go to [Santosh Das](https://www.electronicsandyou.com/blog/how-to-convert-ac-to-dc-using-diode.html) and wiring creds go to [Kazuo Shinozaki](https://github.com/kshinoz98/CircuitPython) and [Lucia Whitmore](https://github.com/lwhitmo?tab=repositories)
+
+
+
+### Reflection
+Hardest part of the assignment was making the wiring work. In order to make an effective
+

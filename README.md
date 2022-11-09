@@ -229,7 +229,7 @@ Hardest part was trying to get the button to work. When I have used pullup butto
 
 ```python
 #Mason Divers
-#Controlled dc motor with potentiometer
+#Controlled dc motor with potentiometer. Create a circuit and code to map a potentiometer.
 #Code is credited to Grant Gastinger & Kaz Shinozaki
 import board               #[lines 1-4] Importing neccesary libraries
 import time
@@ -250,10 +250,10 @@ while True:
 ![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/91158978/200862857-73220d4c-14a8-48b9-96c0-2a28158ca28d.gif)
 ![image](https://user-images.githubusercontent.com/91158978/200863879-123176e0-665f-483e-b1fd-2a36f44eb593.png)
 
-Immage credits go to [Santosh Das](https://www.electronicsandyou.com/blog/how-to-convert-ac-to-dc-using-diode.html) and wiring creds go to [Kazuo Shinozaki](https://github.com/kshinoz98/CircuitPython) and [Lucia Whitmore](https://github.com/lwhitmo?tab=repositories)
+Image credits go to [Santosh Das](https://www.electronicsandyou.com/blog/how-to-convert-ac-to-dc-using-diode.html) and wiring creds go to [Kazuo Shinozaki](https://github.com/kshinoz98/CircuitPython) and [Lucia Whitmore](https://github.com/lwhitmo?tab=repositories)
 
 
 
 ### Reflection
-Hardest part of the assignment was making the wiring work. In order to make an effective
+Hardest part of the assignment was making the wiring work. In order to make an effective circuit you need to have an effective batter pack that gives out the correct voltage. I solved this by using a multimeter to measure how much output was being emmited.
 

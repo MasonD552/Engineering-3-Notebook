@@ -1,19 +1,15 @@
 #Mason Divers
 #Controlled dc motor with potentiometer
-#Code is credited to Grant Gastinger
+#Code is credited to Grant Gastinger & Kaz Shinozaki
+import board               #[lines 1-4] Importing neccesary libraries
 import time
-import board
+from analogio import AnalogOut, AnalogIn
 import simpleio
-from analogio import AnalogIn
-import adafruit_motor
 
-potentiometer = AnalogIn(board.A0)
-motor1 = motor.DCMotor(board. D9)
-
-print("hello world")
+motor = AnalogOut(board.A1) #[lines 5 & 6] Definining the motor and potentiometer
+pot = AnalogIn(board.A0)
 
 while True:
-    print((potentiometer.value,)) 
-    ticks = potentiometer.value
-    spped = simpleio.map_range(ticks,0,1023,0,1)
-    motor1._throttle(spped)
+    print(simpleio.map_range(pot.value, 96, 65520, 0, 65535)) #Print mapped potentiometer value to motor inputs
+    motor.value = int(simpleio.map_range(pot.value, 96, 65520, 0, 65535)) #Write the mapped value to motor
+    time.sleep(.1)   

@@ -15,6 +15,9 @@ drv6612_sleep = DigitalInOut(board.D0)
 button_a = DigitalInOut(board.D8)
 button_a.direction = Direction.INPUT
 button_a.pull = Pull.DOWN
+switch = DigitalInOut(board.D9)
+switch.direction = Direction.INPUT
+switch.pull = Pull.UP
 
 motor_a = Motor.DCMotor(drv6612_ain1, drv6612_ain2)
 
@@ -25,21 +28,20 @@ def print_motor_status(motor):
     else:
         motor_name = "Unknown"
     print(f"Motor {motor_name} throttle is set to {motor.throttle}.")
+
+
 # Main
 drv6612_sleep.direction = Direction.OUTPUT
 drv6612_sleep.value = True  # enable (turn on) the motor driver
 
 while True:
-    if button_a.value:
+    if (button_a.value == 1 & switch.value == 1):
         print((1,))
-        def basic_operations():
-            # Drive forward at full throttle
-            motor_a.throttle = 1.0
-            time.sleep(0.5)
+        # Drive forward at full throttle
+        motor_a.throttle = 1.0
+        sleep(5)
 
-    else:
+    if (switch.value == 0):
         print((0,))
-    time.sleep(0.1)
-    def basic_operations():
-        # Brake to a stop
-        motor_a.throttle = None
+    # Brake to a stop
+    motor_a.throttle = None

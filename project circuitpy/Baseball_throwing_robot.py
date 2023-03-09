@@ -9,7 +9,7 @@ drv6612_ain1 = PWMOut(board.D5, frequency=50)
 drv6612_ain2 = PWMOut(board.D4, frequency=50)
 drv6612_sleep = DigitalInOut(board.D0)
 
-button_a = DigitalInOut(board.D8)
+button_a = DigitalInOut(board.D13)
 button_a.direction = Direction.INPUT
 button_a.pull = Pull.DOWN
 switch = DigitalInOut(board.D10)
@@ -34,7 +34,6 @@ drv6612_sleep.direction = Direction.OUTPUT
 drv6612_sleep.value = True  # enable (turn on) the motor driver
 
 while True:
-    print((button_a.value , switch.value, timeStop, time.monotonic(), motor_a.throttle))
 
     if (button_a.value == 1 & switch.value == 1):
         #print(('Button Pressed & Switch On',))
@@ -50,6 +49,7 @@ while True:
     if (timeStop < time.monotonic()):
         #print(('timesup',))
         motor_a.throttle = None
+    print((button_a.value , switch.value, timeStop, time.monotonic(), motor_a.throttle))
  
     # print(time.monotonic())
 

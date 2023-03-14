@@ -1,14 +1,15 @@
 import time
 import board
-import adafruit_tmp36
+import analogio
 import adafruit_character_lcd.character_lcd_i2c as character_lcd
+from lcd.i2c_pcf8574_interface import I2CPCF8574Interface
 
 # Initialize the TMP36 sensor and the I2C LCD screen
-tmp36 = adafruit_tmp36.TMP36(board.A0)
+tmp36 = analogio.TMP36(board.A0)
 lcd_columns = 16
 lcd_rows = 2
 i2c = board.I2C()
-lcd = character_lcd.Character_LCD_I2C(i2c, lcd_columns, lcd_rows)
+lcd = LCD(I2CPCF8574Interface(i2c, 0x27), num_rows=2, num_cols=16)
 
 # Define the desired temperature range
 min_temp = 20

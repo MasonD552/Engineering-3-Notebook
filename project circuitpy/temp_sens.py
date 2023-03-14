@@ -23,22 +23,21 @@ while True:
     temp_c = tmp36_temperature_C(tmp36)
     temp_f = (temp_c * 9 / 5) + 32
 
-    # Print the temperature on line 1 of the LCD screen
-    print("Temp: {:.1f} F".format(temp_f))
+    # Print the temperature
+    lcd.print("Temp: {:.1f} F".format(temp_f))
+    time.sleep(1)
+    lcd.clear()
+    
+    
 
     # Print a message on line 2 of the LCD screen depending on the temperature
     if temp_f >= min_temp and temp_f <= max_temp:
-        lcd.clear()
         lcd.print("It feels good :)")
     elif temp_f < min_temp:
-        lcd.clear()
         lcd.print("brrr Too Cold!")
     elif temp_f <= 69.9 and temp_f >= 69.0:
-        lcd.clear()
         lcd.print ("Damn its sexy")
     else:
-        lcd.clear()
         lcd.print("Too Hot!")
 
-    # Wait for 1 second before updating the temperature and message again
-    time.sleep(1.0)
+

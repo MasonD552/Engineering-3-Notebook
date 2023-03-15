@@ -328,17 +328,7 @@ while True:
 
 Note that the specific pins used for the I2C LCD backpack may vary depending on the board you're using. Be sure to check the pinout diagram for your board to ensure you're using the correct pins. Also, be sure to double-check the pinout diagrams for your components to ensure you're connecting everything correctly.
 
-```mermaid
-  graph TD;
-      A Initialize the TMP36 sensor, the I2C LCD screen, and the desired temperature range--> B Read the temperature from the TMP36 sensor;
-      C Convert the temperature from Celsius to Fahrenheit--> D Clear the LCD screen;
-       Print the temperature on line 1 of the LCD screen-->Determine the message to print on line 2 based on the temperature:;
-      If the temperature is within the desired range:-->Print "It feels great in here"
-        Else if the temperature is too cold:
-            Print "brrr Too Cold!"
-        Else:
-            Print "Too Hot!";
-```
+[![](https://mermaid.ink/img/pako:eNptkstOwzAQRX9l8AokugAkFlkgQcKjUitV0F3DYqjHjSU_ovGECrX9d5ykLCh4ZY_vPXNtzU6toyZVKOPidt0gCyyrOkBe97tXQg3SEAj5lhilYwLD0Q_F5XxxcwuJQop8gMnkbl_G8EmZ8K-lJJdsl0AiPGHDFBqysoeH89IR8uCZlRWkNROFizHCQ4-FcgULtuEvNwZwNhBcQTQngPcRUA65KhJi3yt7kaeUcEN9kHbA_mCu4QMT6f580qnYQ7WaYSuxPYKrIdnjamr-pLIJtlYaO1I0JcsZyhg2VIwPOTIeB8bTymBhcJK8dQRTAUP5p2DDhAIZ0hDTL8Pz0ZDp7KPv3zbJ7eULPpgZljFCGZ0--2V6-cdkOucG-UuUUa0ulc_3aHWeiF1fqVV2eKpVkbeaDHZOalWHQ5ZiJ_HtK6xVIdzRpepajUKVxQ2jV7mbS7lK2krk-Thlw7AdvgGO5dKU?type=png)](https://mermaid.live/edit#pako:eNptkstOwzAQRX9l8AokugAkFlkgQcKjUitV0F3DYqjHjSU_ovGECrX9d5ykLCh4ZY_vPXNtzU6toyZVKOPidt0gCyyrOkBe97tXQg3SEAj5lhilYwLD0Q_F5XxxcwuJQop8gMnkbl_G8EmZ8K-lJJdsl0AiPGHDFBqysoeH89IR8uCZlRWkNROFizHCQ4-FcgULtuEvNwZwNhBcQTQngPcRUA65KhJi3yt7kaeUcEN9kHbA_mCu4QMT6f580qnYQ7WaYSuxPYKrIdnjamr-pLIJtlYaO1I0JcsZyhg2VIwPOTIeB8bTymBhcJK8dQRTAUP5p2DDhAIZ0hDTL8Pz0ZDp7KPv3zbJ7eULPpgZljFCGZ0--2V6-cdkOucG-UuUUa0ulc_3aHWeiF1fqVV2eKpVkbeaDHZOalWHQ5ZiJ_HtK6xVIdzRpepajUKVxQ2jV7mbS7lK2krk-Thlw7AdvgGO5dKU)
 
 
 ### Reflection

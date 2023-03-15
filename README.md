@@ -332,7 +332,7 @@ Note that the specific pins used for the I2C LCD backpack may vary depending on 
 
 
 ### Reflection
-Hardest part of the assignment was making the wiring work. In order to make an effective circuit you need to have an effective batter pack that gives out the correct voltage. I solved this by using a multimeter to measure how much output was being emmited.
+Hardest part of the assignment was making the wiring work. In order to make an effective circuit you need to have an effective batter pack that gives out the correct voltage. I solved this by using the person next tot me to ask how they figured it out. S/O to Cooper.
 
 
 ## Baseball_Throwing_Robot

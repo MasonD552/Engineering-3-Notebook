@@ -257,5 +257,71 @@ Image credits go to [Santosh Das](https://www.electronicsandyou.com/blog/how-to-
 ### Reflection
 Hardest part of the assignment was making the wiring work. In order to make an effective circuit you need to have an effective batter pack that gives out the correct voltage. I solved this by using a multimeter to measure how much output was being emmited.
 
+
+## CircuitPython_TemperatureSensor
+
+### Description & Code
+
+```python
+
+import time
+import board
+import analogio
+from lcd.lcd import LCD
+from lcd.i2c_pcf8574_interface import I2CPCF8574Interface
+
+# Initialize the TMP36 sensor and the I2C LCD screen
+tmp36 = analogio.AnalogIn(board.A0)
+i2c = board.I2C()
+lcd = LCD(I2CPCF8574Interface(i2c, 0x27), num_rows=2, num_cols=16)
+
+
+def tmp36_temperature_C(analogin):
+    millivolts = analogin.value * (analogin.reference_voltage * 1000 / 65535)
+    return (millivolts - 500) / 10
+
+# Define the desired temperature range
+min_temp = 70
+max_temp = 75
+
+while True:
+    # Read the temperature from the TMP36 sensor
+    temp_c = tmp36_temperature_C(tmp36)
+    temp_f = (temp_c * 9 / 5) + 32
+
+    # Print the temperature
+    lcd.print("Temp: {:.1f} F".format(temp_f))
+    time.sleep(1)
+    lcd.clear()
+    
+    
+
+    # Print a message on line 2 of the LCD screen depending on the temperature
+    if temp_f >= min_temp and temp_f <= max_temp:
+        lcd.print("It feels good :)")
+    elif temp_f < min_temp:
+        lcd.print("brrr Too Cold!")
+    elif temp_f <= 69.9 and temp_f >= 69.0:
+        lcd.print ("Damn its sexy")
+    else:
+        lcd.print("Too Hot!")
+
+```
+
+### Evidence
+
+
+https://user-images.githubusercontent.com/91158978/225391254-99ec7b4a-34d4-4453-a788-3157ebe61f5e.mp4
+![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/91158978/200862857-73220d4c-14a8-48b9-96c0-2a28158ca28d.gif)
+![image](https://user-images.githubusercontent.com/91158978/200863879-123176e0-665f-483e-b1fd-2a36f44eb593.png)
+
+Image credits go to [Santosh Das](https://www.electronicsandyou.com/blog/how-to-convert-ac-to-dc-using-diode.html) and wiring creds go to [Kazuo Shinozaki](https://github.com/kshinoz98/CircuitPython) and [Lucia Whitmore](https://github.com/lwhitmo?tab=repositories)
+
+
+
+### Reflection
+Hardest part of the assignment was making the wiring work. In order to make an effective circuit you need to have an effective batter pack that gives out the correct voltage. I solved this by using a multimeter to measure how much output was being emmited.
+
+
 ## Baseball_Throwing_Robot
 

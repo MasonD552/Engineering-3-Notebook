@@ -328,6 +328,17 @@ while True:
 
 Note that the specific pins used for the I2C LCD backpack may vary depending on the board you're using. Be sure to check the pinout diagram for your board to ensure you're using the correct pins. Also, be sure to double-check the pinout diagrams for your components to ensure you're connecting everything correctly.
 
+```mermaid
+  graph TD;
+      Initialize the TMP36 sensor, the I2C LCD screen, and the desired temperature range-->Read the temperature from the TMP36 sensor;
+      Convert the temperature from Celsius to Fahrenheit-->Clear the LCD screen;
+       Print the temperature on line 1 of the LCD screen-->Determine the message to print on line 2 based on the temperature:;
+      If the temperature is within the desired range:-->Print "It feels great in here"
+        Else if the temperature is too cold:
+            Print "brrr Too Cold!"
+        Else:
+            Print "Too Hot!";
+```
 
 
 ### Reflection

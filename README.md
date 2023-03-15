@@ -312,43 +312,17 @@ while True:
 
 
 ![temperature sensor](https://user-images.githubusercontent.com/91158978/225392515-f7963519-f121-4666-8363-15c800b6bdc8.gif)
-     +------------+
-     | Initialize |
-     +------------+
-           |
-           v
-   +----------------+
-   | Define desired |
-   |      range     |
-   +----------------+
-           |
-           v
-   +----------------+
-   | Read temperature|
-   +----------------+
-           |
-           v
-   +----------------+
-   | Print temp. in  |
-   |      Farenheit |
-   +----------------+
-           |
-           v
-+---------------------------------+
-| Determine message to display    |
-| based on temperature range      |
-+---------------------------------+
-           |
-           v
-   +----------------+
-   | Print message   |
-   +----------------+
-           |
-           v
-   +----------------+
-   | Wait for next   |
-   |    iteration    |
-   +----------------+
+\begin{table}[]
+\begin{tabular}{
+>{\columncolor[HTML]{F7F7F8}}l 
+>{\columncolor[HTML]{F7F7F8}}l 
+>{\columncolor[HTML]{F7F7F8}}l ll}
+\cellcolor[HTML]{RGBA(236, 236, 241, 0.2)}{\color[HTML]{374151} \textbf{TMP36 Sensor}} & \cellcolor[HTML]{RGBA(236, 236, 241, 0.2)}{\color[HTML]{374151} \textbf{CircuitPython Board}} & \cellcolor[HTML]{RGBA(236, 236, 241, 0.2)}{\color[HTML]{374151} \textbf{I2C LCD Backpack}} &  &  \\
+{\color[HTML]{374151} VCC}                                                             & {\color[HTML]{374151} 3V}                                                                     & {\color[HTML]{374151} N/A}                                                                 &  &  \\
+{\color[HTML]{374151} GND}                                                             & {\color[HTML]{374151} GND}                                                                    & {\color[HTML]{374151} GND}                                                                 &  &  \\
+{\color[HTML]{374151} OUT}                                                             & {\color[HTML]{374151} A0}                                                                     & {\color[HTML]{374151} N/A}                                                                 &  & 
+\end{tabular}
+\end{table}
 
 Component	CircuitPython Board Pin
 TMP36 Temperature Sensor	A0

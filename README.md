@@ -311,9 +311,51 @@ while True:
 ### Evidence
 
 
-![tempsensvideo](https://user-images.githubusercontent.com/91158978/225391254-99ec7b4a-34d4-4453-a788-3157ebe61f5e.mp4)
-![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/91158978/200862857-73220d4c-14a8-48b9-96c0-2a28158ca28d.gif)
-![image](https://user-images.githubusercontent.com/91158978/200863879-123176e0-665f-483e-b1fd-2a36f44eb593.png)
+![temperature sensor](https://user-images.githubusercontent.com/91158978/225392515-f7963519-f121-4666-8363-15c800b6bdc8.gif)
+     +------------+
+     | Initialize |
+     +------------+
+           |
+           v
+   +----------------+
+   | Define desired |
+   |      range     |
+   +----------------+
+           |
+           v
+   +----------------+
+   | Read temperature|
+   +----------------+
+           |
+           v
+   +----------------+
+   | Print temp. in  |
+   |      Farenheit |
+   +----------------+
+           |
+           v
++---------------------------------+
+| Determine message to display    |
+| based on temperature range      |
++---------------------------------+
+           |
+           v
+   +----------------+
+   | Print message   |
+   +----------------+
+           |
+           v
+   +----------------+
+   | Wait for next   |
+   |    iteration    |
+   +----------------+
+
+Component	CircuitPython Board Pin
+TMP36 Temperature Sensor	A0
+I2C LCD Backpack	SCL, SDA
+TMP36 and I2C LCD Backpack VCC	3V
+TMP36 and I2C LCD Backpack GND	GND
+Note that the specific pins used for the I2C LCD backpack may vary depending on the board you're using. Be sure to check the pinout diagram for your board to ensure you're using the correct pins. Also, be sure to double-check the pinout diagrams for your components to ensure you're connecting everything correctly.
 
 Image credits go to [Santosh Das](https://www.electronicsandyou.com/blog/how-to-convert-ac-to-dc-using-diode.html) and wiring creds go to [Kazuo Shinozaki](https://github.com/kshinoz98/CircuitPython) and [Lucia Whitmore](https://github.com/lwhitmo?tab=repositories)
 

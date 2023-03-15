@@ -312,6 +312,7 @@ while True:
 
 
 ![temperature sensor](https://user-images.githubusercontent.com/91158978/225392515-f7963519-f121-4666-8363-15c800b6bdc8.gif)
+
 \begin{table}[]
 \begin{tabular}{
 >{\columncolor[HTML]{F7F7F8}}l 

@@ -325,9 +325,8 @@ while True:
 | VCC              	| 5V                  	|
 | SDA              	| SDA                 	|
 | SCL              	| SCL                 	|
-Note that the specific pins used for the I2C LCD backpack may vary depending on the board you're using. Be sure to check the pinout diagram for your board to ensure you're using the correct pins. Also, be sure to double-check the pinout diagrams for your components to ensure you're connecting everything correctly.
 
-Image credits go to [Santosh Das](https://www.electronicsandyou.com/blog/how-to-convert-ac-to-dc-using-diode.html) and wiring creds go to [Kazuo Shinozaki](https://github.com/kshinoz98/CircuitPython) and [Lucia Whitmore](https://github.com/lwhitmo?tab=repositories)
+Note that the specific pins used for the I2C LCD backpack may vary depending on the board you're using. Be sure to check the pinout diagram for your board to ensure you're using the correct pins. Also, be sure to double-check the pinout diagrams for your components to ensure you're connecting everything correctly.
 
 
 

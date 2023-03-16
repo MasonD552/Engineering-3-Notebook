@@ -256,4 +256,3 @@ Image credits go to [Santosh Das](https://www.electronicsandyou.com/blog/how-to-
 
 ### Reflection
 Hardest part of the assignment was making the wiring work. In order to make an effective circuit you need to have an effective batter pack that gives out the correct voltage. I solved this by using a multimeter to measure how much output was being emmited.
-

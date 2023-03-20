@@ -8,7 +8,7 @@ This repository will actually serve as a aid to help you get started with your o
 * [CircuitPython_Servo](#CircuitPython_Servo)
 * [CircuitPython_LCD](#CircuitPython_LCD)
 * [CircuitPython_Distance_Sensor](#CircuitPython_Distance_Sensor)
-* [NextAssignmentGoesHere](#NextAssignment)
+* [Baseball_Throwing_Robot](#Baseball_Throwing_Robot)
 ---
 
 ## Hello_CircuitPython
@@ -255,4 +255,89 @@ Image credits go to [Santosh Das](https://www.electronicsandyou.com/blog/how-to-
 
 
 ### Reflection
+<<<<<<< HEAD
 Hardest part of the assignment was making the wiring work. In order to make an effective circuit you need to have an effective batter pack that gives out the correct voltage. I solved this by using a multimeter to measure how much output was being emmited.
+=======
+Hardest part of the assignment was making the wiring work. In order to make an effective circuit you need to have an effective batter pack that gives out the correct voltage. I solved this by using a multimeter to measure how much output was being emmited.
+
+
+## CircuitPython_TemperatureSensor
+
+### Description & Code
+
+```python
+
+import time
+import board
+import analogio
+from lcd.lcd import LCD
+from lcd.i2c_pcf8574_interface import I2CPCF8574Interface
+
+# Initialize the TMP36 sensor and the I2C LCD screen
+tmp36 = analogio.AnalogIn(board.A0)
+i2c = board.I2C()
+lcd = LCD(I2CPCF8574Interface(i2c, 0x27), num_rows=2, num_cols=16)
+
+
+def tmp36_temperature_C(analogin):
+    millivolts = analogin.value * (analogin.reference_voltage * 1000 / 65535)
+    return (millivolts - 500) / 10
+
+# Define the desired temperature range
+min_temp = 70
+max_temp = 75
+
+while True:
+    # Read the temperature from the TMP36 sensor
+    temp_c = tmp36_temperature_C(tmp36)
+    temp_f = (temp_c * 9 / 5) + 32
+
+    # Print the temperature
+    lcd.print("Temp: {:.1f} F".format(temp_f))
+    time.sleep(1)
+    lcd.clear()
+    
+    
+
+    # Print a message on line 2 of the LCD screen depending on the temperature
+    if temp_f >= min_temp and temp_f <= max_temp:
+        lcd.print("It feels good :)")
+    elif temp_f < min_temp:
+        lcd.print("brrr Too Cold!")
+    elif temp_f <= 69.9 and temp_f >= 69.0:
+        lcd.print ("Damn its sexy")
+    else:
+        lcd.print("Too Hot!")
+
+```
+
+### Evidence
+
+
+![temperature sensor](https://user-images.githubusercontent.com/91158978/225392515-f7963519-f121-4666-8363-15c800b6bdc8.gif)
+
+| TMP36 Sensor 	| CircuitPython Board 	| I2C LCD Backpack 	|
+|--------------	|---------------------	|------------------	|
+| VCC          	| 5V                  	| N/A              	|
+| GND          	| GND                 	| GND              	|
+| OUT          	| A0                  	| N/A              	|
+
+| I2C LCD Backpack 	| CircuitPython Board 	|
+|------------------	|---------------------	|
+| GND              	| GND                 	|
+| VCC              	| 5V                  	|
+| SDA              	| SDA                 	|
+| SCL              	| SCL                 	|
+
+Note that the specific pins used for the I2C LCD backpack may vary depending on the board you're using. Be sure to check the pinout diagram for your board to ensure you're using the correct pins. Also, be sure to double-check the pinout diagrams for your components to ensure you're connecting everything correctly.
+
+[![](https://mermaid.ink/img/pako:eNptkk1PwzAMhv-KyQmk7QBIHHpAYi1fEpMm2G3l4C3OGikfk-OCpm3_nbQdB9h6ap33eexU3qlV1KQKZVz8XjXIAvOqDpCfh907oQZpCIT8hhilZQLD0ffF-XR2eweJQop8gPH4fl_G8EXZcBYpySXbJpAIT9gwhYas7GFyWTpC7pm3soK0YqJwNYww6bRQLmDGNpx6YwBnA8E1RPNP8DkIyl5QLSoSYt9lu5inlHBN3SibXvwruoElJtLd979exVFY9cLHxas5mcYm-LbS2IHVlCxnFWNYUzFc4Oh47B1PC4OFwXHy1hG8ChjKfwjWTCiQJQ0x_QGej0C2s4--u9E4t5ctLJkZ5jFCGZ2--AO9nIFM61wff4kypNVI-XyOVudN2HWVWmXCU62K_KrJYOukVnU45Ci2Ej-2YaUK4ZZGqt1oFKosrhm9yt1cylXSViJPh-3ql-zwA-mwzyw?type=png)](https://mermaid.live/edit#pako:eNptkk1PwzAMhv-KyQmk7QBIHHpAYi1fEpMm2G3l4C3OGikfk-OCpm3_nbQdB9h6ap33eexU3qlV1KQKZVz8XjXIAvOqDpCfh907oQZpCIT8hhilZQLD0ffF-XR2eweJQop8gPH4fl_G8EXZcBYpySXbJpAIT9gwhYas7GFyWTpC7pm3soK0YqJwNYww6bRQLmDGNpx6YwBnA8E1RPNP8DkIyl5QLSoSYt9lu5inlHBN3SibXvwruoElJtLd979exVFY9cLHxas5mcYm-LbS2IHVlCxnFWNYUzFc4Oh47B1PC4OFwXHy1hG8ChjKfwjWTCiQJQ0x_QGej0C2s4--u9E4t5ctLJkZ5jFCGZ2--AO9nIFM61wff4kypNVI-XyOVudN2HWVWmXCU62K_KrJYOukVnU45Ci2Ej-2YaUK4ZZGqt1oFKosrhm9yt1cylXSViJPh-3ql-zwA-mwzyw)
+
+
+### Reflection
+Hardest part of the assignment was making the wiring work. In order to make an effective circuit you need to have an effective batter pack that gives out the correct voltage. I solved this by using the person next tot me to ask how they figured it out. S/O to Cooper.
+
+
+## Baseball_Throwing_Robot
+
+>>>>>>> 684e33a8247f3b1791adf328c98a4b6df06eac54

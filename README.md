@@ -338,6 +338,50 @@ Note that the specific pins used for the I2C LCD backpack may vary depending on 
 Hardest part of the assignment was making the wiring work. In order to make an effective circuit you need to have an effective batter pack that gives out the correct voltage. I solved this by using the person next tot me to ask how they figured it out. S/O to Cooper.
 
 
-## Baseball_Throwing_Robot
 
->>>>>>> 684e33a8247f3b1791adf328c98a4b6df06eac54
+## CircuitPython_RotaryEncoder
+
+### Description & Code
+```python
+import rotaryio
+import board
+import digitalio
+import neopixel
+from lcd.lcd import LCD
+from lcd.i2c_pcf8574_interface import I2CPCF8574Interface
+# get and i2c object
+i2c = board.I2C()
+
+# some LCDs are 0x3f... some are 0x27.
+lcd = LCD(I2CPCF8574Interface(i2c, 0x27), num_rows=2, num_cols=16)
+
+led: neopixel.Neopixel = neopixel.NeoPixel(board.NEOPIXEL, 1) # initialization of hardware
+print("neopixel")
+
+led.brightness = 0.1
+
+button = digitalio.DigitalInOut(board.D2)
+button.direction = digitalio.Direction.INPUT
+button.pull = digitalio.Pull.UP
+
+colors = [("stop", (255, 0, 0)), ("caution", (128, 128, 0)), ("go", (0, 255, 0))]
+
+encoder = rotaryio.IncrementalEncoder(board.D3, board.D4, 2)
+last_position = None
+while True:
+    position = encoder.position
+    if last_position is None or position != last_position:
+        lcd.clear()
+        lcd.print(colors[position % len(colors)][0])
+    if(not button.value):
+        led[0] = colors[position % len(colors)][1]
+    last_position = position
+```
+### Evidence
+![ezgif com-video-to-gif (1)](https://user-images.githubusercontent.com/91158978/227224618-ee92a732-fee3-4975-aa4f-ac145791eef5.gif)
+
+### Reflection
+
+
+
+## Baseball_Throwing_Robot

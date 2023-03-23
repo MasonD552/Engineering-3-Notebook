@@ -343,6 +343,9 @@ Hardest part of the assignment was making the wiring work. In order to make an e
 
 ### Description & Code
 ```python
+#Mason Divers Rotary Encoder
+#Thanks to River Lewis for the code and wiring diagram
+#rivques
 import rotaryio
 import board
 import digitalio

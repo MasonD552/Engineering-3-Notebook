@@ -414,10 +414,10 @@ The code demonstrates the use of hardware components such as rotary encoders, pu
 
 
 ## Baseball_Throwing_Robot
-# What is this Project? 
+### What is this Project? 
 Build a robot arm that can do a task.
 
-## Requirements For Project 
+### Requirements For Project 
 -Your robot arm can pick something up or hold something, and move it around.  This is very general, and should be made more specific, based on the particular problem that you're attempting to solve.
 
 -Your robot arm's motion should have 3-6 servos Micro or standard. 
@@ -428,14 +428,14 @@ Build a robot arm that can do a task.
 
 -Knock out your design in CAD before you start constructing anything.  Use SolidWorks to do a motion and/or stress analysis of your robot arm or some part of the arm. 
 
-# Project planning doccument:
+### Project planning doccument:
 Source for Project Planning:
 https://docs.google.com/document/d/15Tew-MtXxxcetKLdX3Wt4Nufw6axhEezAe_4fcUIpyI/edit#heading=h.ukbi0a75zb46 
 
-# Our goal/ Vission:
+### Our goal/ Vission:
 What we wanted to do as a team is create a solution to our problem. Our problem being how can we get extra practice when we dont have other people who want to come out and get extra practice. Our solition: create a robot arm that can be used as a multi-purpouse tool and can be there when the person is not.This is why we chose to make a robot arm that can throw baseballs and give you infeild repetitions when you need. Making this will eliminate the need for another person to be there and will help give you the perfect reps every time.
 
-# Onshape documents 
+### Onshape documents 
 ![image](https://user-images.githubusercontent.com/113116205/228252030-547f0788-dd24-46d4-897a-e9394a541afd.png)
 This is what we based our whole project off of it is called a jai alai scooper it holds the ball and throwis it at almost 90 degree angle and can whip the ball out of the jai alai pretty fast and was very essential in our project.
 
@@ -449,4 +449,4 @@ This is what we based our whole project off of it is called a jai alai scooper i
 ![image](https://user-images.githubusercontent.com/113116205/228255034-a1f2eb2d-ef10-4b09-9f2b-514ce2137940.png)
 
 - This is on of the variations we used to build our desighns we knew we were going to lift it into the air and they had to be strapped to a platform so we used these to change the level because we lifted it of of the ground 
-# Reflection
+### Reflection

@@ -440,6 +440,19 @@ What we wanted to do as a team is create a solution to our problem. Our problem 
 This is what we based our whole project off of it is called a jai alai scooper it holds the ball and throwis it at almost 90 degree angle and can whip the ball out of the jai alai pretty fast and was very essential in our project.
 
 - this is a video of what the jai ali is actually capable of: https://www.youtube.com/watch?v=wk4-fuGAwjY
+- here is another video:
+
+
+https://user-images.githubusercontent.com/91158978/228271775-c3338992-b1db-4201-a7a4-3339b8b70e48.mp4
+- here is another video of robot engineers in Philly who created a robot that through the first pitch
+
+https://user-images.githubusercontent.com/91158978/228272692-2c9db49b-105a-4e4e-b5eb-860517c765e6.mp4
+
+
+
+
+
+
 
 ![image](https://user-images.githubusercontent.com/113116205/228253333-abcd3984-5490-450f-a9f3-8cc0a87c59f8.png)
 ![image](https://user-images.githubusercontent.com/113116205/228253504-3adfd3d6-4590-47cb-87a2-462effc2bb48.png)
@@ -456,29 +469,118 @@ This is what we based our whole project off of it is called a jai alai scooper i
 ![image](https://user-images.githubusercontent.com/113116205/228258455-16e856e2-5c4f-42de-82e5-58dae5b6e186.png)
 ![image](https://user-images.githubusercontent.com/113116205/228258660-affc144c-b90f-4056-8be8-3a65e897cd77.png)
 ![image](https://user-images.githubusercontent.com/113116205/228258746-dd44368d-8829-4be7-8636-70b526c16bc0.png)
+
+- These are pictures of our final onshape doccument assembly with the walls and the arm being able to be able to turn 360 degrees.We change stuff to use less material in our actuall one but this is the final onshape doccument. 
+
+### Onshape Doccument 
+- https://cvilleschools.onshape.com/documents/356c56ca499f7db8076fcbc8/w/f6d4ab2399876fcf0f8c09f6/e/9266c3aeabd5a4af2e413943
+
 ### Photos Of Final Project
 ![IMG-2209](https://user-images.githubusercontent.com/91158978/228259502-d665096a-e785-485d-af83-426343239fdc.jpg)
 ![image_50445057](https://user-images.githubusercontent.com/91158978/228259522-ee10264c-3d3c-477f-a468-ec29ad1d4b8e.JPG)
 ![image_50403329](https://user-images.githubusercontent.com/91158978/228259537-6af1d40e-7f32-4f0e-8347-183dfa58d45a.JPG)
 
-### Videos of Final Project
+### Commented Code
+```python
+# Import necessary libraries
+import time
+from time import sleep
+import board
+from digitalio import DigitalInOut, Direction, Pull
+from pwmio import PWMOut
+from adafruit_motor import motor as Motor
+
+# Set up DRV6612 motor driver inputs and outputs
+drv6612_ain1 = PWMOut(board.D5, frequency=50)
+drv6612_ain2 = PWMOut(board.D4, frequency=50)
+drv6612_sleep = DigitalInOut(board.D0)
+
+# Set up button and switch inputs
+button_a = DigitalInOut(board.D13)
+button_a.direction = Direction.INPUT
+button_a.pull = Pull.DOWN
+switch = DigitalInOut(board.D10)
+switch.direction = Direction.INPUT
+switch.pull = Pull.UP
+
+# Set up motor using DRV6612 inputs
+motor_a = Motor.DCMotor(drv6612_ain1, drv6612_ain2)
+timeStop = 0.0
+currentTime = time.monotonic()
+
+# Define function to print motor status
 
 
-https://user-images.githubusercontent.com/91158978/228267972-ae7b9968-fa08-4297-8880-53e68af6ee34.MOV
+def print_motor_status(motor):
+
+
+if (motor == motor_a):
+motor_name = "A"
+else:
+motor_name = "Unknown"
+print(f"Motor {motor_name} throttle is set to {motor.throttle}.")
+
+# Main loop
+drv6612_sleep.direction = Direction.OUTPUT
+drv6612_sleep.value = True  # enable (turn on) the motor driver
+while True:
+    # If button and switch are both pressed
+if (button_a.value == 1 & switch.value == 1):
+    # Drive forward at full throttle for 5 seconds
+motor_a.throttle = 1.0
+timeStop = (time.monotonic() + 5)
+
+# If switch is turned off
+if (switch.value == 0):
+    # Brake to a stop
+    motor_a.throttle = None
+
+# If timeStop has elapsed
+if (timeStop < time.monotonic()):
+    # Brake to a stop
+    motor_a.throttle = None
+
+# Print button and switch values, timeStop, current time, and motor throttle
+print((button_a.value, switch.value, timeStop, time.monotonic(), motor_a.throttle))
+
+# Use conditional variables to determine which "state" you want to be in
+# If button is hit
+#  tStop  = current time + 5s
+#  goStop = 1
+#
+# If switch.val == 0
+#   goStop = 0
+#
+# If tStop < current time
+#   goStop = 0
+#
+# If goStop = 1
+#   motor throttle = 1
+# Else
+#   motor throttle = 0
+```
+# Videos from Project
+
+https://user-images.githubusercontent.com/91158978/228269459-0703f06c-6a79-47bb-87a3-f3d1d6f57633.mp4
+
+
+https://user-images.githubusercontent.com/91158978/228269484-28800e23-5790-4bf4-9498-d971a8ff5251.mp4
 
 
 
-https://user-images.githubusercontent.com/91158978/228267951-f4aae106-020e-4003-a43e-453edcb09199.MOV
+https://user-images.githubusercontent.com/91158978/228269600-a4db18a1-2ca0-43e0-84d3-42527a54ff74.MOV
 
 
 
-
-https://user-images.githubusercontent.com/91158978/228268695-d10e7759-0334-4f80-865b-68b60bd9fc59.mp4
-
-
-
-https://user-images.githubusercontent.com/91158978/228268673-8b52ecec-f8f8-41d7-b7af-ebb5d1912dd5.mp4
+https://user-images.githubusercontent.com/91158978/228269615-9e9cc8d4-0779-400c-96f6-061e618b7958.MOV
 
 
 
 ### Reflection
+This project taught us a lot about robotics and problem-solving. We had to come up with a solution for the problem of not having enough people to practice with, and we decided to create a robot arm that could throw baseballs and give infield repetitions. We learned how to design and build a robot arm that could move and pick up objects with the help of servos and an Arduino controller. The CAD design was especially useful in creating a motion and stress analysis of the robot arm.
+
+One of the most challenging parts of the project was getting the arm to move in the right way to throw the baseballs accurately. We had to experiment with different designs and angles to get the throwing motion just right. We also had to figure out how to make the arm stable and secure, so it wouldn't wobble or move while throwing the ball. Another challenge was making sure the controller was working correctly and that we could easily switch off the power or change batteries.
+
+Our main goal was to create a multi-purpose tool that could help people get extra practice without needing another person there. We wanted to eliminate the need for someone to throw the ball and give people the perfect reps every time. The jai alai scooper was a crucial component of our design, and we based the whole project on it. The connector piece was also essential in connecting the jai alai to the actual metal piece and throwing the ball accurately.
+
+Overall, this project was a great learning experience, and we were able to develop new skills in robotics and problem-solving. It was a challenging but rewarding project, and we're proud of the final result.

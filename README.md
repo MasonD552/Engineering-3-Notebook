@@ -389,7 +389,7 @@ while True:
 ![ezgif com-video-to-gif (1)](https://user-images.githubusercontent.com/91158978/227224618-ee92a732-fee3-4975-aa4f-ac145791eef5.gif)
 
 ### Reflection
-The code demonstrates the use of hardware components such as rotary encoders, push buttons, neopixel LEDs, and LCD displays in a project. The code is well-structured, and the comments in the code make it easy to understand. Hardest part of this assignment was getting the code to push to Github. Big thanks to [River Lewisd](https://rivques.github.io/high-school-engineering/eng-3-code-notebook/) for the code. 
+The code demonstrates the use of hardware components such as rotary encoders, push buttons, neopixel LEDs, and LCD displays in a project. The code is well-structured, and the comments in the code make it easy to understand. Hardest part of this assignment was getting the code to push to Github. Big thanks to [River Lewis](https://rivques.github.io/high-school-engineering/eng-3-code-notebook/) for the code. 
 
 
 ## Baseball_Throwing_Robot

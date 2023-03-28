@@ -394,18 +394,20 @@ while True:
 | Pin 2(A) | D3  |
 | Pin 3(B) | D4  |
 
-Push Button Pin	Board Pin
-Pin 1	D2
-Pin 2	GND
-Neopixel LED Pin	Board Pin
-VIN	3V
-GND	GND
-DIN	NEOPIXEL
-LCD Display Pin	Board Pin
-VSS	GND
-VDD	5V
-SDA	SDA
-SCL	SCL
+| Push Button Pin | Board Pin |
+| ------------- | ------------- |
+| Pin 1 | D2 |
+| Pin 2 | GND  |
+
+| Neopixel LED Pin | Board Pin |
+| ------------- | ------------- |
+| VIN | 3V |
+| GND | GND |
+| DIN | NEOPIXEL |
+| LCD | Display Pin Board Pin |
+| VSS | GND |
+| SDA | SDA |
+| SCL | SCL |
 
 ### Reflection
 The code demonstrates the use of hardware components such as rotary encoders, push buttons, neopixel LEDs, and LCD displays in a project. The code is well-structured, and the comments in the code make it easy to understand. Hardest part of this assignment was getting the code to push to Github. Big thanks to [River Lewis](https://rivques.github.io/high-school-engineering/eng-3-code-notebook/) for the code. 

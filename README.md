@@ -342,6 +342,11 @@ Hardest part of the assignment was making the wiring work. In order to make an e
 ## CircuitPython_RotaryEncoder
 
 ### Description & Code
+The rotary encoder is connected to two digital pins of the board and generates pulses that are used to determine the direction and amount of rotation. The code uses the rotaryio library to read the encoder position and the board library to initialize the hardware.
+
+The code also uses the digitalio library to read a push button that is connected to another digital pin of the board. When the button is pressed, the code changes the color of a single neopixel LED, based on the current position of the rotary encoder.
+The code also uses the neopixel library to initialize the neopixel LED and set its brightness. Finally, the code uses the lcd.lcd library and the i2c_pcf8574_interface library to initialize an LCD display with two rows and sixteen columns. The LCD display is used to print the current color based on the position of the rotary encoder.
+
 ```python
 #Mason Divers Rotary Encoder
 #Thanks to River Lewis for the code and wiring diagram
@@ -384,7 +389,7 @@ while True:
 ![ezgif com-video-to-gif (1)](https://user-images.githubusercontent.com/91158978/227224618-ee92a732-fee3-4975-aa4f-ac145791eef5.gif)
 
 ### Reflection
-
+The code demonstrates the use of hardware components such as rotary encoders, push buttons, neopixel LEDs, and LCD displays in a project. The code is well-structured, and the comments in the code make it easy to understand. Hardest part of this assignment was getting the code to push to Github. Big thanks to [River Lewisd](https://rivques.github.io/high-school-engineering/eng-3-code-notebook/) for the code. 
 
 
 ## Baseball_Throwing_Robot

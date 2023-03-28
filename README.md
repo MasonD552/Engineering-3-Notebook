@@ -8,6 +8,8 @@ This repository will actually serve as a aid to help you get started with your o
 * [CircuitPython_Servo](#CircuitPython_Servo)
 * [CircuitPython_LCD](#CircuitPython_LCD)
 * [CircuitPython_Distance_Sensor](#CircuitPython_Distance_Sensor)
+* [CircuitPython_TemperatureSensor](#CircuitPython_TemperatureSensor)
+* [CircuitPython_RotaryEncoder](#CircuitPython_RotaryEncoder)
 * [Baseball_Throwing_Robot](#Baseball_Throwing_Robot)
 ---
 

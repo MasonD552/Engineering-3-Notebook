@@ -31,7 +31,7 @@ def print_motor_status(motor):
 
 
 if (motor == motor_a):
-motor_name = "A"
+    motor_name = "A"
 else:
 motor_name = "Unknown"
 print(f"Motor {motor_name} throttle is set to {motor.throttle}.")

@@ -1,7 +1,7 @@
 # CircuitPython
 This repository will actually serve as a aid to help you get started with your own template.  You should copy the raw form of this readme into your own, and use this template to write your own.  If you want to draw inspiration from other classmates, feel free to check [this directory of all students!](https://github.com/chssigma/Class_Accounts).
 
-**Link to: [CAD](https://github.com/MasonD552/Engineering-3-Notebook/tree/CAD)**
+
 ## Table of Contents
 * [Table of Contents](#TableOfContents)
 * [Hello_CircuitPython](#Hello_CircuitPython)
@@ -413,6 +413,50 @@ while True:
 
 ### Reflection
 The code demonstrates the use of hardware components such as rotary encoders, push buttons, neopixel LEDs, and LCD displays in a project. The code is well-structured, and the comments in the code make it easy to understand. Hardest part of this assignment was getting the code to push to Github. Big thanks to [River Lewis](https://rivques.github.io/high-school-engineering/eng-3-code-notebook/) for the code. 
+
+## CircuitPython_Photointerrupter
+
+### Description & Code
+The given code is a Python script that utilizes the CircuitPython library to interface with a photoelectric sensor (photointerrupter) connected to the D7 pin on a microcontroller board. The script starts by importing the necessary libraries, including "time" for timekeeping, "digitalio" for digital input/output, and "board" for pin mapping.
+
+A digital input pin (photoI) is defined using the "DigitalInOut" class from the digitalio library, and its direction is set to INPUT with a pull-up resistor enabled. A "last_photoI" variable is initialized to True, and a "last_update" variable is set to -4 to keep track of the last time the crossing count was updated.
+
+Inside the while loop, the script checks if the time elapsed since the last update is greater than 4 seconds using "time.monotonic()". If it is, the current number of crosses detected by the photoelectric sensor (photoICrosses) is printed, and the last_update time is updated.
+
+The script then checks if the current value of the photoI pin is different from the last recorded value, and if it is low (indicating a crossing event). If so, the photoICrosses count is incremented by 1, and the last_photoI value is updated.
+```python
+##Mason Divers Photointerrupter
+#Thanks to River Lewis for the code and wiring diagram
+#rivques
+import time # Import the time module for time-related functions
+import digitalio # Import the digitalio module for working with digital I/O pins
+import board # Import the board module for working with board-specific pin names
+
+# Set up a digital input pin for the photoI sensor
+photoI = digitalio.DigitalInOut(board.D7)
+photoI.direction = digitalio.Direction.INPUT # Set the direction of the pin as input
+photoI.pull = digitalio.Pull.UP # Enable the internal pull-up resistor for the pin
+
+last_photoI = True # Initialize the previous state of the photoI sensor as True (HIGH)
+last_update = -4 # Initialize the last update time as -4 seconds ago
+
+photoICrosses = 0 # Initialize the counter for photoI sensor crossings as 0
+
+while True: # Start an infinite loop
+    if time.monotonic() - last_update > 4: # Check if 4 seconds have passed since the last update
+        print(f"The number of crosses is {photoICrosses}") # Print the number of crossings
+        last_update = time.monotonic() # Update the last update time to the current time
+
+    if last_photoI != photoI.value and not photoI.value: # Check if the state of the photoI sensor has changed from HIGH to LOW (crossing detected)
+        photoICrosses += 1 # Increment the counter for photoI sensor crossings
+    last_photoI = photoI.value # Update the previous state of the photoI sensor with the current state
+```
+### Evidence
+![photointcircuit](https://user-images.githubusercontent.com/91158978/230910242-def84ab4-9095-48e5-a069-461ced04de3a.png)
+![image](https://user-images.githubusercontent.com/91158978/230910262-ff9d2c5e-ba20-4d3c-9ebe-f9b4f49dd152.png)
+
+### Reflection
+Overall, the code is to be a basic implementation for detecting crossings using a photoI sensor and keeping track of the number of crossings that occur over time. However, it may need additional error handling, input validation, and other features depending on the specific application or use case.
 
 
 ## Baseball_Throwing_Robot

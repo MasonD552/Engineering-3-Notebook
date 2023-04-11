@@ -452,7 +452,8 @@ while True: # Start an infinite loop
 ```
 ### Evidence
 ![photointcircuit](https://user-images.githubusercontent.com/91158978/230910242-def84ab4-9095-48e5-a069-461ced04de3a.png)
-![image](https://user-images.githubusercontent.com/91158978/230910262-ff9d2c5e-ba20-4d3c-9ebe-f9b4f49dd152.png)
+![ezgif com-optimize (1)](https://user-images.githubusercontent.com/91158978/231176515-50d558a7-5bdb-47a7-b968-8edae073cb41.gif)
+
 
 ### Reflection
 Overall, the code is to be a basic implementation for detecting crossings using a photoI sensor and keeping track of the number of crossings that occur over time. However, it may need additional error handling, input validation, and other features depending on the specific application or use case.

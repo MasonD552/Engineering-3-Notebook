@@ -12,6 +12,7 @@ This repository will actually serve as a aid to help you get started with your o
 * [CircuitPython_RotaryEncoder](#CircuitPython_RotaryEncoder)
 * [CircuitPython_Photointerrupter](#CircuitPython_Photointerrupter)
 * [Baseball_Throwing_Robot](#Baseball_Throwing_Robot)
+* [PingPongBall_Levitation](#PingPongBall_Levitation)
 
 ---
 
@@ -630,3 +631,5 @@ One of the most challenging parts of the project was getting the arm to move in 
 Our main goal was to create a multi-purpose tool that could help people get extra practice without needing another person there. We wanted to eliminate the need for someone to throw the ball and give people the perfect reps every time. The jai alai scooper was a crucial component of our design, and we based the whole project on it. The connector piece was also essential in connecting the jai alai to the actual metal piece and throwing the ball accurately.
 
 Overall, this project was a great learning experience, and we were able to develop new skills in robotics and problem-solving. It was a challenging but rewarding project, and we're proud of the final result.
+
+## PingPongBall_Levitation

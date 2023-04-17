@@ -479,7 +479,7 @@ Build a robot arm that can do a task.
 Source for Project Planning:
 https://docs.google.com/document/d/15Tew-MtXxxcetKLdX3Wt4Nufw6axhEezAe_4fcUIpyI/edit#heading=h.ukbi0a75zb46 
 
-### Our goal/ Vission:
+### Our goal/ Vision:
 What we wanted to do as a team is create a solution to our problem. Our problem being how can we get extra practice when we dont have other people who want to come out and get extra practice. Our solition: create a robot arm that can be used as a multi-purpouse tool and can be there when the person is not.This is why we chose to make a robot arm that can throw baseballs and give you infeild repetitions when you need. Making this will eliminate the need for another person to be there and will help give you the perfect reps every time.
 
 ### Onshape documents 
@@ -633,3 +633,21 @@ Our main goal was to create a multi-purpose tool that could help people get extr
 Overall, this project was a great learning experience, and we were able to develop new skills in robotics and problem-solving. It was a challenging but rewarding project, and we're proud of the final result.
 
 ## PingPongBall_Levitation
+
+### What is this Project?
+
+### Requirements For Project
+
+### Project planning doccument:
+
+### Our goal/ Vision:
+
+### Onshape documents 
+
+### Photos Of Final Project
+
+### Commented Code
+
+### Videos from Project
+
+### Reflection

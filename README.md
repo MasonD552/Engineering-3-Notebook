@@ -11,6 +11,7 @@ This repository will actually serve as a aid to help you get started with your o
 * [CircuitPython_TemperatureSensor](#CircuitPython_TemperatureSensor)
 * [CircuitPython_RotaryEncoder](#CircuitPython_RotaryEncoder)
 * [CircuitPython_Photointerrupter](#CircuitPython_Photointerrupter)
+* [Intermediate_CAD](#Intermediate_CAD)
 * [Baseball_Throwing_Robot](#Baseball_Throwing_Robot)
 * [PingPongBall_Levitation](#PingPongBall_Levitation)
 
@@ -459,6 +460,8 @@ while True: # Start an infinite loop
 ### Reflection
 Overall, the code is to be a basic implementation for detecting crossings using a photoI sensor and keeping track of the number of crossings that occur over time. However, it may need additional error handling, input validation, and other features depending on the specific application or use case.
 
+##Intermediate_CAD
+### Link to the Intermediate CAD document: [Intermediate CAD](https://github.com/MasonD552/Intermediate-CAD.git)
 
 ## Baseball_Throwing_Robot
 ### Link to the Baseball_Throwing_Robot Documentation: [Robot Arm Project](https://github.com/MasonD552/Robot-Arm.git)

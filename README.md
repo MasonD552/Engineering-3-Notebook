@@ -460,7 +460,7 @@ while True: # Start an infinite loop
 ### Reflection
 Overall, the code is to be a basic implementation for detecting crossings using a photoI sensor and keeping track of the number of crossings that occur over time. However, it may need additional error handling, input validation, and other features depending on the specific application or use case.
 
-##Intermediate_CAD
+## Intermediate_CAD
 ### Link to the Intermediate CAD document: [Intermediate CAD](https://github.com/MasonD552/Intermediate-CAD.git)
 
 ## Baseball_Throwing_Robot

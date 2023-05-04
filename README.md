@@ -468,21 +468,4 @@ Overall, the code is to be a basic implementation for detecting crossings using 
 
 
 ## PingPongBall_Levitation
-
-### What is this Project?
-
-### Requirements For Project
-
-### Project planning doccument:
-
-### Our goal/ Vision:
-
-### Onshape documents 
-
-### Photos Of Final Project
-
-### Commented Code
-
-### Videos from Project
-
-### Reflection
+### Link to the Ball_Levitation_PID_Project Documentation: [PID Project](https://github.com/MasonD552/Ball-Levitation-PID-Project.git)

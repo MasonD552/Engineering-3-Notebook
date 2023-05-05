@@ -267,6 +267,9 @@ Hardest part of the assignment was making the wiring work. In order to make an e
 ## CircuitPython_TemperatureSensor
 
 ### Description & Code
+This code initializes a temperature sensor (TMP36) and an I2C LCD screen. It then defines a function that converts the analog input from the temperature sensor to temperature in Celsius. The code also sets the minimum and maximum desired temperature range.
+
+The main loop of the code reads the temperature from the TMP36 sensor and converts it to Fahrenheit. It then displays the temperature in Fahrenheit on the first line of the LCD screen and waits for 1 second before clearing the screen. Depending on the temperature, a message is displayed on the second line of the LCD screen. If the temperature is within the desired range, the message "It feels good :)" is displayed. If the temperature is below the desired range, the message "brrr Too Cold!" is displayed. If the temperature is above the desired range, the message "Too Hot!" is displayed. If the temperature is exactly 69.0 to 69.9, the message "Damn its sexy" is displayed. The loop continues to run indefinitely until the program is manually stopped.
 
 ```python
 

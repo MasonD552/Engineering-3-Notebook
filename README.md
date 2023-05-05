@@ -183,6 +183,13 @@ The one thing that was hard was getting the colors to fade in and out. I solved 
 ## CircuitPython_LCD
 
 ### Description & Code
+This code sets up a counter that increases or decreases its value based on two buttons. The code imports necessary libraries and initializes the I2C LCD screen, two input pins, and the variable num to zero.
+
+The program then enters an infinite loop that checks the state of the buttons. If the first button (connected to pin D3) is held and the second button (connected to pin D2) is pressed, it checks which button was pressed and either increments or decrements the value of num accordingly. The LCD screen is then cleared and the updated value of num is printed.
+
+To prevent multiple counts from being registered when the buttons are held down, a variable called Redo is used to "debounce" the buttons. When a button press is detected, Redo is set to False and the program waits for 0.1 seconds before setting Redo back to True. This ensures that only one count is registered per button press.
+
+The program runs indefinitely until it is manually stopped. The LCD screen displays "Starting" when the program starts, and then displays the updated value of num each time the buttons are pressed.
 
 ```python
 #Mason Divers
@@ -232,6 +239,12 @@ Hardest part was trying to get the button to work. When I have used pullup butto
 ## CircuitPython_MotorControl
 
 ### Description & Code
+
+This code controls a DC motor with a potentiometer by mapping the analog input of the potentiometer to the analog output of the motor. The program imports the necessary libraries and initializes the motor and potentiometer on pins A1 and A0, respectively.
+
+In an infinite loop, the program reads the value of the potentiometer and maps it from the range of 96-65520 to the range of 0-65535 using the simpleio.map_range() function. The mapped value is then printed to the console and written to the motor using the motor.value attribute. The time.sleep() function is used to add a delay of 0.1 seconds between each loop iteration.
+
+As the potentiometer is adjusted, the mapped value sent to the motor changes, allowing for the speed of the motor to be controlled by the potentiometer. The program runs indefinitely until it is manually stopped.
 
 ```python
 #Mason Divers

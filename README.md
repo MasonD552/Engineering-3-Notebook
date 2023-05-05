@@ -230,8 +230,13 @@ while True:                                 #[19-30] Code to add and subtract
 
 ### Evidence
 ![ezgif com-gif-maker](https://user-images.githubusercontent.com/91158978/198723378-2b73a4d7-467a-48c3-b714-d60a909e4de3.gif)
-
-
+| Board Pin 	| Component 	|
+|--------------	|---------------------	|
+| D3          	| Button                  	|
+| D2          	| Button                  	|
+| SCL          	| LCD                  	|
+| SDA          	| LCD                  	|
+	
 ### Reflection
 Hardest part was trying to get the button to work. When I have used pullup buttons they always seem to work weird. For my solution I needed to have the button be pressed down to count down and press one button to count up.
 

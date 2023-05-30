@@ -26,20 +26,13 @@ storeHandPos = [0.0, 0.0, 0.0, 0.0, 0.0]
 sonar = adafruit_hcsr04.HCSR04(trigger_pin=board.D3, echo_pin=board.D2)
 # Initialize PWM output
 fanMotor = pulseio.PWMOut(fanPin=board.D1, frequency=1000, duty_cycle=0)
-tubeLight = pulseio.PWMOut(tubeLightPin= board.D4, frequency=1000, duty_cycle=0)
 
-# Initialize LED and Button
-led = digitalio.DigitalInOut(led)
-led.direction = digitalio.Direction.OUTPUT
-button = digitalio.DigitalInOut(button)
-button.direction = digitalio.Direction.INPUT
-button.pull = digitalio.Pull.UP
 # Measure hand position
 durationH = sonar.distance
 distanceH = durationH / 58.2
 
 # Measure ball position
-durationB = sonarBall.distance
+durationB = sonar.distance
 distanceB = durationB / 58.2
 
 # Control loop calculations

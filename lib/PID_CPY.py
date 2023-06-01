@@ -1,5 +1,4 @@
 import time
-import warnings
 
 
 def _clamp(value, limits):
@@ -13,13 +12,17 @@ def _clamp(value, limits):
     return value
 
 
+
 try:
+    scale = 1e9
+    def _to_s():
+        return time.monotonic_ns()/scale
     # Get monotonic time to ensure that time deltas are always positive
-    _current_time = time.monotonic
+    _current_time = _to_s
 except AttributeError:
     # time.monotonic() not available (using python < 3.3), fallback to time.time()
-    _current_time = time.time
-    warnings.warn('time.monotonic() not available in python < 3.3, using time.time() as fallback')
+    _current_time = time.monotonic
+    print('time.monotonic_ns() not available, reverting to time.monotonic()')
 
 
 class PID(object):
@@ -36,6 +39,7 @@ class PID(object):
         auto_mode=True,
         proportional_on_measurement=False,
         error_map=None,
+        integral_in_band = (None,None)
     ):
         """
         Initialize a new PID controller.
@@ -59,12 +63,15 @@ class PID(object):
             the input directly rather than on the error (which is the traditional way). Using
             proportional-on-measurement avoids overshoot for some types of systems.
         :param error_map: Function to transform the error value in another constrained value.
+        :param integral_in_band: Limits on the error value for which the integral term is calculated, in units of the setpoint (ie: degrees C, psi, etc)
+            Useful for preventing integral windup. Integral term will only be calculated if the error value is above the min value and below the max value
         """
         self.Kp, self.Ki, self.Kd = Kp, Ki, Kd
         self.setpoint = setpoint
         self.sample_time = sample_time
 
         self._min_output, self._max_output = None, None
+        self._integral_band_min, self._integral_band_max = None,None
         self._auto_mode = auto_mode
         self.proportional_on_measurement = proportional_on_measurement
         self.error_map = error_map
@@ -72,12 +79,14 @@ class PID(object):
         self._proportional = 0
         self._integral = 0
         self._derivative = 0
+        self.error = 0
 
         self._last_time = None
         self._last_output = None
         self._last_input = None
 
         self.output_limits = output_limits
+        self.integral_in_band = integral_in_band
         self.reset()
 
     def __call__(self, input_, dt=None):
@@ -105,24 +114,32 @@ class PID(object):
             return self._last_output
 
         # Compute error terms
-        error = self.setpoint - input_
+        self.error = self.setpoint - input_
         d_input = input_ - (self._last_input if (self._last_input is not None) else input_)
 
         # Check if must map the error
         if self.error_map is not None:
-            error = self.error_map(error)
+            self.error = self.error_map(self.error)
+            
+            
 
         # Compute the proportional term
         if not self.proportional_on_measurement:
             # Regular proportional-on-error, simply set the proportional term
-            self._proportional = self.Kp * error
+            self._proportional = self.Kp * self.error
         else:
             # Add the proportional error on measurement to error_sum
             self._proportional -= self.Kp * d_input
 
         # Compute integral and derivative terms
-        self._integral += self.Ki * error * dt
+        self._integral += self.Ki * self.error * dt
         self._integral = _clamp(self._integral, self.output_limits)  # Avoid integral windup
+        
+        if None not in (self._integral_band_min, self._integral_band_max):
+            if self._integral_band_min < self.error < self._integral_band_max:
+                pass
+            else:
+                self._integral = 0
 
         self._derivative = -self.Kd * d_input / dt
 
@@ -225,7 +242,37 @@ class PID(object):
 
         self._integral = _clamp(self._integral, self.output_limits)
         self._last_output = _clamp(self._last_output, self.output_limits)
+        
+    @property
+    def integral_in_band(self):
+        """
+        The current band in which the integral term is calculated, as a 2-tuple: (lower, upper).
 
+        See also the *integral_in_band* parameter in :meth:`PID.__init__`.
+        """
+        return self._integral_band_min, self._integral_band_max
+
+    @integral_in_band.setter
+    def integral_in_band(self, limits):
+        """Set the integral band limits."""
+        if limits is None:
+            self._integral_band_min, self._integral_band_max = None,None
+            return
+        
+        min_band, max_band = limits
+        
+        if (None not in limits) and (max_band < min_band):
+            raise ValueError('lower limit must be less than upper limit')  
+            
+        self._integral_band_min = min_band
+        self._integral_band_max = max_band  
+        
+        if None not in (self._integral_band_min, self._integral_band_max):
+            if self._integral_band_min < self.error < self._integral_band_max:
+                pass
+            else:
+                self._integral = 0
+            
     def reset(self):
         """
         Reset the PID controller internals.

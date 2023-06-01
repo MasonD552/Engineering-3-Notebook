@@ -1,45 +1,28 @@
 import board
-import digitalio
-import pulseio
-import time
 import adafruit_hcsr04
+from PID_CPY import PID  
+import pwmio   
+import time 
 
-# defines variables
+pid = PID(100,800,1000)
+pid.setpoint = 35
+pid.output_limits = (24000,34000)
 
+fanMotor = pwmio.PWMOut(board.D8,duty_cycle = 65535,frequency=5000) # fanfanMotor
+fanMotor.duty_cycle = 0
 
-# Geometrical parameters of the system
+dist = adafruit_hcsr04.HCSR04(trigger_pin = board.D3, echo_pin = board.D2)
 
-# variables for the control loop
-controlP = 0.0
-controlI = 0.0
-controlD = 0.0
-control = 0.0
-err = 0.0
-prevErr = 0.0
-previousBallPos = 0.0  # the initial ball position, then updates
-prevControlI = 0.0  # initial condition for integrator
-prevBallPos = columnL + upperGap - ballDiam / 2  # used in control D
-# array to make average of hand position
-storeHandPos = [0.0, 0.0, 0.0, 0.0, 0.0]
-
-# Initialize ultrasonic sensors
-sonar = adafruit_hcsr04.HCSR04(trigger_pin=board.D3, echo_pin=board.D2)
-# Initialize PWM output
-fanMotor = pulseio.PWMOut(fanPin=board.D1, frequency=1000, duty_cycle=0)
-
-# Measure hand position
-durationH = sonar.distance
-distanceH = durationH / 58.2
-
-# Measure ball position
-durationB = sonar.distance
-distanceB = durationB / 58.2
-
-# Control loop calculations
-err = ref - distanceH
-controlP = 1.0 * err
-controlI = prevControlI + 0.5
-# PID constants
-samplingTime = 0.0625  # sampling time in seconds
-
-
+while True:
+    try:
+        height = 20 - dist.distance
+        speed = int(pid(height))
+        fanMotor.duty_cycle = speed
+        print("speed")
+        print(speed)
+        print("height")
+        print(height)
+        print(" ")
+    except RuntimeError:
+        print("retry")
+    time.sleep(.1)

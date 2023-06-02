@@ -10,7 +10,7 @@
     "python.analysis.extraPaths": [
         "c:\\Users\\mdivers67\\.vscode\\extensions\\rivques.vscode-circuitpython-0.1.21\\boards\\0x239A\\0x8038",
         "c:\\Users\\mdivers67\\.vscode\\extensions\\rivques.vscode-circuitpython-0.1.21\\stubs",
-        "c:\\Users\\mdivers67\\AppData\\Roaming\\Code\\User\\globalStorage\\rivques.vscode-circuitpython\\bundle\\20230601\\adafruit-circuitpython-bundle-py-20230601\\lib",
+        "c:\\Users\\mdivers67\\AppData\\Roaming\\Code\\User\\globalStorage\\rivques.vscode-circuitpython\\bundle\\20230602\\adafruit-circuitpython-bundle-py-20230602\\lib",
         "./lib/simple_pid"
     ]
 }

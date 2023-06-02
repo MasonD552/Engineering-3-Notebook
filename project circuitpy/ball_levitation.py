@@ -4,8 +4,8 @@ from PID_CPY import PID
 import pwmio   
 import time 
 
-pid = PID(24000,10,8500)
-pid.setpoint = 14
+pid = PID(15000,1.0,4750)
+pid.setpoint = 15.00
 pid.output_limits = (20000.00,50000.00)
 
 fanMotor = pwmio.PWMOut(board.D8,duty_cycle = 65535) # fanfanMotor
@@ -22,4 +22,3 @@ while True:
     except RuntimeError:
         print("retry")
     time.sleep(.1)
-#TIP 120 ask deirolf
